@@ -13,7 +13,8 @@ Mycn_runs=("SRR002046" "SRR002043" "SRR002044" "SRR002045")
 Zfx_runs=("SRR002035" "SRR002037" "SRR002036" "SRR002038")
 
 tfs=("GFP" "Oct4" "Sox2" "Nanog" "Esrrb" "Kfl4" "Tcfcp2l1" "Stat3" "Smad1" "Myc" "Mycn" "Zfx" "E2f1")
-mkdir -p output/process/{Oct4,Sox2,Nanog,Esrrb,Klf4,Tcfcp2l1,Stat3,Smad1,Myc,Mycn,Zfx,E2f1,GFP}
+
+mkdir -p output/process/{Oct4,Sox2,Nanog,Esrrb,Kfl4,Tcfcp2l1,Stat3,Smad1,Myc,Mycn,Zfx,E2f1,GFP}
 # Align to generate SAM and convert to BAM
 for p in ${tfs[@]}; do
     target_p="${p}_runs[@]" 
