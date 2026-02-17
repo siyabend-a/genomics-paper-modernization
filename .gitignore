@@ -5,3 +5,11 @@
 *.txt
 *.bam
 *.sam
+*.bt2
+*.bed
+*.xls
+*.narrowPeak
+E2f1_vs_GFP_model.r
+*.bai
+*.html
+*fastqc.zip
