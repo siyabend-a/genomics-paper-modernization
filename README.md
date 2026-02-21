@@ -8,9 +8,13 @@ This independent project is dedicated to align the reads that **Ouyang et al. (2
 
 ## Tools
 hisat2
+
 bowtie2
+
 samtools
+
 bedtools
+
 Subread
 
 ## Citation
