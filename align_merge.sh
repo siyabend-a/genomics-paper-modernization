@@ -13,14 +13,15 @@ Mycn_runs=("SRR002046" "SRR002043" "SRR002044" "SRR002045")
 Zfx_runs=("SRR002035" "SRR002037" "SRR002036" "SRR002038")
 
 tfs=("GFP" "Oct4" "Sox2" "Nanog" "Esrrb" "Kfl4" "Tcfcp2l1" "Stat3" "Smad1" "Myc" "Mycn" "Zfx" "E2f1")
-
+#tfs=("Kfl4")
+#mkdir -p output/process/Kfl4
 mkdir -p output/process/{Oct4,Sox2,Nanog,Esrrb,Kfl4,Tcfcp2l1,Stat3,Smad1,Myc,Mycn,Zfx,E2f1,GFP}
 # Align to generate SAM and convert to BAM
 for p in ${tfs[@]}; do
     target_p="${p}_runs[@]" 
     for align in "${!target_p}"; do
         
-        bowtie2 -x output/index/mm39_index -U data/fastq/$align.fastq.gz -S output/process/$p/$align.sam --threads 6
+        bowtie2 -x output/index/mm39_index -U data/fastq/${align}.fastq.gz -S output/process/$p/${align}.sam --very-sensitive --threads 8
         sam="output/process/$p/${align}.sam"
         samtools view -bS $sam > ${sam/sam/bam}
         rm $sam
@@ -28,12 +29,12 @@ for p in ${tfs[@]}; do
 
     # Sort BAM
     for bam in output/process/$p/*bam; do
-        samtools sort -@ 4 -o ${bam/bam/_sorted.bam} $bam
+        samtools sort -@ 8 -o ${bam/bam/_sorted.bam} $bam
     done
 
     merged="${p}_merged.bam"
     # Merge BAM
-    samtools merge -@ 6 output/process/$p/$merged output/process/$p/*sorted.bam
+    samtools merge -@ 8 output/process/$p/$merged output/process/$p/*sorted.bam
 
     # Index the merged BAM
     samtools index output/process/$p/$merged
