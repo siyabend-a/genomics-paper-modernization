@@ -17,6 +17,8 @@ bedtools
 
 Subread
 
+macs3
+
 ## Citation
 **1-** Z. Ouyang, Q. Zhou, & W.H. Wong, ChIP-Seq of transcription factors predicts absolute and differential gene expression in embryonic stem cells, Proc. Natl. Acad. Sci. U.S.A. 106 (51) 21521-21526, [https://doi.org/10.1073/pnas.0904863106](https://doi.org/10.1073/pnas.0904863106) (2009).
 
